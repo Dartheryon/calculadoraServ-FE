@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { HomeData, ServiceBill, PaymentPerFloor } from '../interfaces/AppInterfaces';
 import { formatDate } from "../helpers";
 interface Props {
@@ -18,11 +18,28 @@ const MainForm = ({
   setTotalPerFloor
 }: Props) => {
 
+  const [errorBill, setErrorBill] = useState<boolean>(false)
+  const [errorAmmountBill, setErrorAmmountBill] = useState<boolean>(false)
+  const [errorBillDate, setErrorBillDate] = useState<boolean>(false)
   const { firstFloor, secondFloor, thirdFloor, local, isWaterBill, nameRecipient } = homeData
   const { bill, billDate, total } = serviceBill
 
+
   const calculate = (e: React.FormEvent) => {
     e.preventDefault()
+    console.log(billDate)
+    if (bill === '') {
+      setErrorBill(true)
+    }
+    if (total === '0') {
+      setErrorAmmountBill(true)
+    }
+    if (billDate === '') {
+      setErrorBillDate(true)
+    }
+    if (errorBill || errorAmmountBill || errorBillDate) {
+      return
+    }
     const totalPeople: number = parseInt(firstFloor) + parseInt(secondFloor) + parseInt(thirdFloor);
     const valuePerson: number = (isWaterBill) ? ((parseInt(total) - parseInt(local)) / totalPeople) : (parseInt(total) / totalPeople);
     const valueFirstfloor: number = valuePerson * parseInt(firstFloor);
@@ -34,7 +51,6 @@ const MainForm = ({
       totalThirdFloor: Math.round(valueThirdFloor / 50) * 50,
     })
   };
-
 
   useEffect(() => {
     if (bill === 'acueducto') {
@@ -55,6 +71,9 @@ const MainForm = ({
         className='bg-white shadow-md px-8 pt-6 pb-8 rounded-md my-3'
         onSubmit={calculate}
       >
+        {
+          errorBill && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige un servicio público</p>
+        }
         <div className='flex flex-col my-3'>
           <label className='mb-1' htmlFor='Servicio'>Servicio Público</label>
           <select
@@ -71,6 +90,9 @@ const MainForm = ({
             <option value='internet'>Internet</option>
           </select>
         </div>
+        {
+          errorAmmountBill && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor digita el valor de la factura</p>
+        }
         <div className='flex flex-col my-3'>
           <label className='mb-1' htmlFor='firstFlat'>total a pagar: </label>
           <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
@@ -81,6 +103,9 @@ const MainForm = ({
             name='total'
             id='total' />
         </div>
+        {
+          errorBillDate && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
+        }
         <div className='flex flex-col my-3'>
           <label className='mb-1' htmlFor='finalDate'>Fecha de vencimiento: </label>
           <input
@@ -148,7 +173,7 @@ const MainForm = ({
           )
         }
         <div className='flex flex-col my-3'>
-          <button className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded shadow-lg w-full" type="submit">Calcular</button>
+          <button className="bg-emerald-600 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded shadow-lg w-full" type="submit">Calcular</button>
         </div>
 
 

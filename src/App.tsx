@@ -7,7 +7,7 @@ import DataPresentation from './components/DataPresentation';
 
 const SERVICE_BILL_INITIAL_STATE: ServiceBill = {
   bill: '',
-  billDate: new Date(),
+  billDate: '',
   total: '0'
 }
 

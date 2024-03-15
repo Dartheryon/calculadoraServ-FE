@@ -18,7 +18,7 @@ const DataForm = ({
 }: Props) => {
   return (
     <div
-      className="md:w-1/2 lg:w-2/4 mx-5"
+      className="md:w-1/2 mx-5"
     >
       <MainForm
         serviceBill={serviceBill}
