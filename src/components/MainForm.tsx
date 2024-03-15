@@ -29,6 +29,7 @@ const MainForm = ({
   const [errorBillDate, setErrorBillDate] = useState<boolean>(false)
   const [errorBillSince, setErrorBillSince] = useState<boolean>(false)
   const [errorBillTo, setErrorBillTo] = useState<boolean>(false)
+
   const { firstFloor, secondFloor, thirdFloor, local, isWaterBill, nameRecipient } = homeData
   const { bill, billDate, billSince, billTo, total } = serviceBill
 
@@ -38,20 +39,22 @@ const MainForm = ({
     console.log(billDate)
     if (bill === '') {
       setErrorBill(true)
-    }
-    if (total === '0') {
-      setErrorAmmountBill(true)
-    }
-    if (billDate === '') {
-      setErrorBillDate(true)
+      return
     }
     if (billSince === '') {
       setErrorBillSince(true)
+      return
     }
     if (billTo === '') {
       setErrorBillTo(true)
+      return
     }
-    if (errorBill || errorAmmountBill || errorBillDate) {
+    if (total === '0') {
+      setErrorAmmountBill(true)
+      return
+    }
+    if (billDate === '') {
+      setErrorBillDate(true)
       return
     }
     const totalPeople: number = parseInt(firstFloor) + parseInt(secondFloor) + parseInt(thirdFloor);
@@ -77,8 +80,8 @@ Período facturado del 08 de febrero al 07 de marzo de 2024.
 Fecha límite de pago es el ${formatDate(serviceBill.billDate)}.
 Favor cancelar mínimo 2 días antes para poder cancelar a tiempo.
 Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
-    )
-    setIsMessageReady(true)
+    );
+    setIsMessageReady(true);
   };
 
   useEffect(() => {
@@ -90,9 +93,6 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
     }
   }, [bill])
 
-  useEffect(() => {
-    console.log(formatDate(billDate))
-  }, [billDate])
   return (
     <>
       <h2 className="font-black text-2xl text-center my-5">Configura los datos correspondientes para calcular el valor a pagar por piso</h2>
@@ -120,7 +120,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
           </select>
         </div>
         {
-          errorBillDate && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
+          errorBillSince && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
         }
         <div className='flex flex-col my-3'>
           <label className='mb-1' htmlFor='finalDate'>Período facturado desde: </label>
@@ -128,12 +128,12 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
             text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='date'
-            onChange={e => setServiceBill({ ...serviceBill, billDate: new Date(e.target.value) })}
+            onChange={e => setServiceBill({ ...serviceBill, billSince: new Date(e.target.value) })}
             name='billSince'
             id='billSince' />
         </div>
         {
-          errorBillDate && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
+          errorBillTo && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
         }
         <div className='flex flex-col my-3'>
           <label className='mb-1' htmlFor='finalDate'>Período facturado hasta: </label>
@@ -141,7 +141,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
             text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='date'
-            onChange={e => setServiceBill({ ...serviceBill, billDate: new Date(e.target.value) })}
+            onChange={e => setServiceBill({ ...serviceBill, billTo: new Date(e.target.value) })}
             name='BillTo'
             id='BillTo' />
         </div>

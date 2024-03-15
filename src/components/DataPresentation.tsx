@@ -1,3 +1,4 @@
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 interface Props {
   isMessageReady: boolean
   message: string
@@ -13,9 +14,11 @@ const DataPresentation = ({
         className=" bg-white shadow-md px-5 pt-6 pb-8 rounded-2xl my-3 mx-5"
       >
         <span className='font-sans'>
-          <pre className='whitespace-pre-wrap w-full'>
-            {message}
-          </pre>
+          <CopyToClipboard text={message}>
+            <pre className='whitespace-pre-wrap w-full'>
+              {message}
+            </pre>
+          </CopyToClipboard>
         </span>
       </div>
     </div>
