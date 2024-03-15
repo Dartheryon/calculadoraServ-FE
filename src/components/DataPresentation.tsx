@@ -2,16 +2,18 @@ import { formatDate } from '../helpers'
 import { HomeData, ServiceBill, PaymentPerFloor } from '../interfaces/AppInterfaces'
 
 interface Props {
+  isMessageReady: boolean
   serviceBill: ServiceBill
   homeData: HomeData,
   totalPerFloor: PaymentPerFloor
 }
 const DataPresentation = ({
+  isMessageReady,
   serviceBill,
   homeData,
   totalPerFloor,
 }: Props) => {
-  return (
+  return isMessageReady && (
     <div className='flex flex-col'>
       <h2 className='text-center text-xl text-black'>Toca el siguiente texto para copiarlo y poder enviarlo a los destinatarios</h2>
       <div
@@ -39,8 +41,6 @@ const DataPresentation = ({
           Gracias. Tenga un buen día.`
           }
         </p>
-
-
       </div>
     </div>
   )

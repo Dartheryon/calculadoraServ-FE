@@ -28,7 +28,7 @@ function App() {
   const [serviceBill, setServiceBill] = useState<ServiceBill>(SERVICE_BILL_INITIAL_STATE)
   const [homeData, setHomeData] = useState<HomeData>(HOME_DATA_INITIAL_STATE)
   const [totalPerFloor, setTotalPerFloor] = useState<PaymentPerFloor>(TOTAL_PER_FLOOR_INITIAL_STATE)
-  const [message, setMessage] = useState<string>('')
+  const [isMessageReady, setIsMessageReady] = useState<boolean>(false)
 
 
 
@@ -43,8 +43,10 @@ function App() {
           setHomeData={setHomeData}
           totalPerFloor={totalPerFloor}
           setTotalPerFloor={setTotalPerFloor}
+          setIsMessageReady={setIsMessageReady}
         />
         <DataPresentation
+          isMessageReady={isMessageReady}
           serviceBill={serviceBill}
           homeData={homeData}
           totalPerFloor={totalPerFloor}

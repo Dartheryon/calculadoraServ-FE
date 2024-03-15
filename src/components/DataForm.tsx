@@ -8,6 +8,7 @@ interface Props {
   setHomeData: React.Dispatch<React.SetStateAction<HomeData>>
   totalPerFloor: PaymentPerFloor
   setTotalPerFloor: React.Dispatch<React.SetStateAction<PaymentPerFloor>>
+  setIsMessageReady: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const DataForm = ({
@@ -17,6 +18,7 @@ const DataForm = ({
   setHomeData,
   totalPerFloor,
   setTotalPerFloor,
+  setIsMessageReady
 }: Props) => {
   return (
     <div
@@ -29,6 +31,7 @@ const DataForm = ({
         setHomeData={setHomeData}
         totalPerFloor={totalPerFloor}
         setTotalPerFloor={setTotalPerFloor}
+        setIsMessageReady={setIsMessageReady}
       />
     </div>
   )
