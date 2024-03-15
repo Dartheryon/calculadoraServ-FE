@@ -56,7 +56,8 @@ const MainForm = ({
       totalSecondFloor: Math.round(valueSecondFloor / 50) * 50,
       totalThirdFloor: Math.round(valueThirdFloor / 50) * 50,
     })
-    setMessage(`Buenas tardes ${homeData.nameRecipient}, 
+    setMessage(
+      `Buenas tardes ${homeData.nameRecipient}, 
 este mensaje es para informarle que llegó el recibo de ${serviceBill.bill} 
 por valor de ${serviceBill.total} pesos. 
 Período facturado del 08 de febrero al 07 de marzo de 2024.
@@ -67,7 +68,8 @@ Período facturado del 08 de febrero al 07 de marzo de 2024.
 
 Fecha límite de pago es el ${formatDate(serviceBill.billDate)}.
 Favor cancelar mínimo 2 días antes para poder cancelar a tiempo.
-Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`)
+Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
+    )
     setIsMessageReady(true)
   };
 
