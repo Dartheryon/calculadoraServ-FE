@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { HomeData, ServiceBill, paymentPerFloor } from './interfaces/AppInterfaces'
+import { HomeData, ServiceBill, PaymentPerFloor } from './interfaces/AppInterfaces'
 import DataForm from './components/DataForm';
 import Header from './components/Header';
 import DataPresentation from './components/DataPresentation';
@@ -19,7 +19,7 @@ const HOME_DATA_INITIAL_STATE: HomeData = {
   isWaterBill: false,
   nameRecipient: 'Don Jorge'
 }
-const TOTAL_PER_FLOOR_INITIAL_STATE: paymentPerFloor = {
+const TOTAL_PER_FLOOR_INITIAL_STATE: PaymentPerFloor = {
   totalFirstFloor: 0,
   totalSecondFloor: 0,
   totalThirdFloor: 0
@@ -27,25 +27,8 @@ const TOTAL_PER_FLOOR_INITIAL_STATE: paymentPerFloor = {
 function App() {
   const [serviceBill, setServiceBill] = useState<ServiceBill>(SERVICE_BILL_INITIAL_STATE)
   const [homeData, setHomeData] = useState<HomeData>(HOME_DATA_INITIAL_STATE)
-  const [totalPerFloor, setTotalPerFloor] = useState<paymentPerFloor>(TOTAL_PER_FLOOR_INITIAL_STATE)
+  const [totalPerFloor, setTotalPerFloor] = useState<PaymentPerFloor>(TOTAL_PER_FLOOR_INITIAL_STATE)
 
-
-  const { firstFloor, secondFloor, thirdFloor, local, isWaterBill } = homeData
-  const { total } = serviceBill
-  const calculate = (e: React.FormEvent) => {
-    e.preventDefault()
-    const totalPeople: number = parseInt(firstFloor) + parseInt(secondFloor) + parseInt(thirdFloor);
-    const valuePerson: number = (isWaterBill) ? ((parseInt(total) - parseInt(local)) / totalPeople) : (parseInt(total) / totalPeople);
-    const valueFirstfloor: number = valuePerson * parseInt(firstFloor);
-    const valueSecondFloor: number = valuePerson * parseInt(secondFloor);
-    const valueThirdFloor: number = valuePerson * parseInt(thirdFloor);
-    setTotalPerFloor({
-      totalFirstFloor: Math.round(valueFirstfloor / 50) * 50,
-      totalSecondFloor: Math.round(valueSecondFloor / 50) * 50,
-      totalThirdFloor: Math.round(valueThirdFloor / 50) * 50,
-    })
-
-  };
   return (
     <div className="container mt-20 mx-auto">
       <Header />
@@ -55,7 +38,7 @@ function App() {
           setServiceBill={setServiceBill}
           homeData={homeData}
           setHomeData={setHomeData}
-          calculate={calculate}
+          setTotalPerFloor={setTotalPerFloor}
         />
         <DataPresentation
           totalPerFloor={totalPerFloor}

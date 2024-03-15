@@ -1,6 +1,6 @@
-import { paymentPerFloor } from '../interfaces/AppInterfaces'
+import { PaymentPerFloor } from '../interfaces/AppInterfaces'
 interface Props {
-  totalPerFloor: paymentPerFloor
+  totalPerFloor: PaymentPerFloor
 }
 
 const DataPresentation = ({ totalPerFloor }: Props) => {

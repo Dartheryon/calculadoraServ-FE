@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { HomeData, ServiceBill } from '../interfaces/AppInterfaces';
+import { HomeData, ServiceBill, PaymentPerFloor } from '../interfaces/AppInterfaces';
 import { formatDate } from "../helpers";
 interface Props {
   serviceBill: ServiceBill
   setServiceBill: React.Dispatch<React.SetStateAction<ServiceBill>>
   homeData: HomeData
   setHomeData: React.Dispatch<React.SetStateAction<HomeData>>
-  calculate: (e: React.FormEvent) => void
+  setTotalPerFloor: React.Dispatch<React.SetStateAction<PaymentPerFloor>>
 }
 
 const MainForm = ({
@@ -15,11 +15,27 @@ const MainForm = ({
   setServiceBill,
   homeData,
   setHomeData,
-  calculate
+  setTotalPerFloor
 }: Props) => {
 
   const { firstFloor, secondFloor, thirdFloor, local, isWaterBill, nameRecipient } = homeData
   const { bill, billDate, total } = serviceBill
+
+  const calculate = (e: React.FormEvent) => {
+    e.preventDefault()
+    const totalPeople: number = parseInt(firstFloor) + parseInt(secondFloor) + parseInt(thirdFloor);
+    const valuePerson: number = (isWaterBill) ? ((parseInt(total) - parseInt(local)) / totalPeople) : (parseInt(total) / totalPeople);
+    const valueFirstfloor: number = valuePerson * parseInt(firstFloor);
+    const valueSecondFloor: number = valuePerson * parseInt(secondFloor);
+    const valueThirdFloor: number = valuePerson * parseInt(thirdFloor);
+    setTotalPerFloor({
+      totalFirstFloor: Math.round(valueFirstfloor / 50) * 50,
+      totalSecondFloor: Math.round(valueSecondFloor / 50) * 50,
+      totalThirdFloor: Math.round(valueThirdFloor / 50) * 50,
+    })
+  };
+
+
   useEffect(() => {
     if (bill === 'acueducto') {
       setHomeData({ ...homeData, isWaterBill: true })
@@ -34,7 +50,7 @@ const MainForm = ({
   }, [billDate])
   return (
     <>
-      <h2>Configura los datos correspondientes para cada piso</h2>
+      <h2 className="font-black text-2xl text-center my-5">Configura los datos correspondientes para calcular el valor a pagar por piso</h2>
       <form
         className='bg-white shadow-md px-8 pt-6 pb-8 rounded-md my-3'
         onSubmit={calculate}

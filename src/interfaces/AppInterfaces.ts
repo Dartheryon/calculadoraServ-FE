@@ -13,7 +13,7 @@ export interface ServiceBill {
   total: string;
 }
 
-export interface paymentPerFloor {
+export interface PaymentPerFloor {
   totalFirstFloor: number;
   totalSecondFloor: number;
   totalThirdFloor: number;

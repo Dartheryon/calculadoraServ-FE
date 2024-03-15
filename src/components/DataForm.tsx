@@ -1,12 +1,12 @@
 import MainForm from './MainForm'
-import { HomeData, ServiceBill } from '../interfaces/AppInterfaces'
+import { HomeData, ServiceBill, PaymentPerFloor } from '../interfaces/AppInterfaces'
 
 interface Props {
   serviceBill: ServiceBill
   setServiceBill: React.Dispatch<React.SetStateAction<ServiceBill>>
   homeData: HomeData,
   setHomeData: React.Dispatch<React.SetStateAction<HomeData>>
-  calculate: (e: React.FormEvent) => void
+  setTotalPerFloor: React.Dispatch<React.SetStateAction<PaymentPerFloor>>
 }
 
 const DataForm = ({
@@ -14,18 +14,18 @@ const DataForm = ({
   setServiceBill,
   homeData,
   setHomeData,
-  calculate
+  setTotalPerFloor
 }: Props) => {
   return (
     <div
-      className="md:w-1/2 lg:w-1/4 mx-5"
+      className="md:w-1/2 lg:w-2/4 mx-5"
     >
       <MainForm
         serviceBill={serviceBill}
         setServiceBill={setServiceBill}
         homeData={homeData}
         setHomeData={setHomeData}
-        calculate={calculate}
+        setTotalPerFloor={setTotalPerFloor}
       />
     </div>
   )
