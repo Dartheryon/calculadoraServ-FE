@@ -9,6 +9,8 @@ export interface HomeData {
 
 export interface ServiceBill {
   bill: string;
+  billSince: Date | string;
+  billTo: Date | string;
   billDate: Date | string;
   total: string;
 }

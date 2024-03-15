@@ -8,6 +8,8 @@ import DataPresentation from './components/DataPresentation';
 const SERVICE_BILL_INITIAL_STATE: ServiceBill = {
   bill: '',
   billDate: '',
+  billSince: '',
+  billTo: '',
   total: '0'
 }
 

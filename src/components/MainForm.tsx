@@ -27,8 +27,10 @@ const MainForm = ({
   const [errorBill, setErrorBill] = useState<boolean>(false)
   const [errorAmmountBill, setErrorAmmountBill] = useState<boolean>(false)
   const [errorBillDate, setErrorBillDate] = useState<boolean>(false)
+  const [errorBillSince, setErrorBillSince] = useState<boolean>(false)
+  const [errorBillTo, setErrorBillTo] = useState<boolean>(false)
   const { firstFloor, secondFloor, thirdFloor, local, isWaterBill, nameRecipient } = homeData
-  const { bill, billDate, total } = serviceBill
+  const { bill, billDate, billSince, billTo, total } = serviceBill
 
 
   const calculate = (e: React.FormEvent) => {
@@ -42,6 +44,12 @@ const MainForm = ({
     }
     if (billDate === '') {
       setErrorBillDate(true)
+    }
+    if (billSince === '') {
+      setErrorBillSince(true)
+    }
+    if (billTo === '') {
+      setErrorBillTo(true)
     }
     if (errorBill || errorAmmountBill || errorBillDate) {
       return
@@ -110,6 +118,32 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             <option value='Energia'>Energía</option>
             <option value='internet'>Internet</option>
           </select>
+        </div>
+        {
+          errorBillDate && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
+        }
+        <div className='flex flex-col my-3'>
+          <label className='mb-1' htmlFor='finalDate'>Período facturado desde: </label>
+          <input
+            className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
+            text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+            type='date'
+            onChange={e => setServiceBill({ ...serviceBill, billDate: new Date(e.target.value) })}
+            name='billSince'
+            id='billSince' />
+        </div>
+        {
+          errorBillDate && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
+        }
+        <div className='flex flex-col my-3'>
+          <label className='mb-1' htmlFor='finalDate'>Período facturado hasta: </label>
+          <input
+            className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
+            text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+            type='date'
+            onChange={e => setServiceBill({ ...serviceBill, billDate: new Date(e.target.value) })}
+            name='BillTo'
+            id='BillTo' />
         </div>
         {
           errorAmmountBill && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor digita el valor de la factura</p>
