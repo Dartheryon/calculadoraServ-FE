@@ -7,6 +7,7 @@ interface Props {
   setServiceBill: React.Dispatch<React.SetStateAction<ServiceBill>>
   homeData: HomeData
   setHomeData: React.Dispatch<React.SetStateAction<HomeData>>
+  totalPerFloor: PaymentPerFloor
   setTotalPerFloor: React.Dispatch<React.SetStateAction<PaymentPerFloor>>
 }
 
@@ -15,7 +16,7 @@ const MainForm = ({
   setServiceBill,
   homeData,
   setHomeData,
-  setTotalPerFloor
+  setTotalPerFloor,
 }: Props) => {
 
   const [errorBill, setErrorBill] = useState<boolean>(false)
@@ -50,6 +51,7 @@ const MainForm = ({
       totalSecondFloor: Math.round(valueSecondFloor / 50) * 50,
       totalThirdFloor: Math.round(valueThirdFloor / 50) * 50,
     })
+
   };
 
   useEffect(() => {

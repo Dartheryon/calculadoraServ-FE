@@ -28,6 +28,9 @@ function App() {
   const [serviceBill, setServiceBill] = useState<ServiceBill>(SERVICE_BILL_INITIAL_STATE)
   const [homeData, setHomeData] = useState<HomeData>(HOME_DATA_INITIAL_STATE)
   const [totalPerFloor, setTotalPerFloor] = useState<PaymentPerFloor>(TOTAL_PER_FLOOR_INITIAL_STATE)
+  const [message, setMessage] = useState<string>('')
+
+
 
   return (
     <div className="container mt-20 mx-auto">
@@ -38,9 +41,12 @@ function App() {
           setServiceBill={setServiceBill}
           homeData={homeData}
           setHomeData={setHomeData}
+          totalPerFloor={totalPerFloor}
           setTotalPerFloor={setTotalPerFloor}
         />
         <DataPresentation
+          serviceBill={serviceBill}
+          homeData={homeData}
           totalPerFloor={totalPerFloor}
         />
       </div>
