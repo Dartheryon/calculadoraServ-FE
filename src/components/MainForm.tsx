@@ -10,6 +10,7 @@ interface Props {
   totalPerFloor: PaymentPerFloor
   setTotalPerFloor: React.Dispatch<React.SetStateAction<PaymentPerFloor>>
   setIsMessageReady: React.Dispatch<React.SetStateAction<boolean>>
+  setMessage: React.Dispatch<React.SetStateAction<string>>
 }
 
 const MainForm = ({
@@ -17,8 +18,10 @@ const MainForm = ({
   setServiceBill,
   homeData,
   setHomeData,
+  totalPerFloor,
   setTotalPerFloor,
-  setIsMessageReady
+  setIsMessageReady,
+  setMessage
 }: Props) => {
 
   const [errorBill, setErrorBill] = useState<boolean>(false)
@@ -53,7 +56,18 @@ const MainForm = ({
       totalSecondFloor: Math.round(valueSecondFloor / 50) * 50,
       totalThirdFloor: Math.round(valueThirdFloor / 50) * 50,
     })
+    setMessage(`Buenas tardes ${homeData.nameRecipient}, 
+este mensaje es para informarle que llegó el recibo de ${serviceBill.bill} 
+por valor de ${serviceBill.total} pesos. 
+Período facturado del 08 de febrero al 07 de marzo de 2024.
 
+1º piso x ${homeData.firstFloor} personas = ${totalPerFloor.totalFirstFloor} pesos.
+2º piso x ${homeData.secondFloor} personas = ${totalPerFloor.totalSecondFloor} pesos.
+3º piso x ${homeData.thirdFloor} persona = ${totalPerFloor.totalThirdFloor} pesos.
+
+Fecha límite de pago es el ${formatDate(serviceBill.billDate)}.
+Favor cancelar mínimo 2 días antes para poder cancelar a tiempo.
+Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`)
     setIsMessageReady(true)
   };
 
