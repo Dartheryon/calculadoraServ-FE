@@ -138,7 +138,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
           errorAmmountBill && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor digita el valor de la factura</p>
         }
         <div className='flex flex-col my-3'>
-          <label className='mb-1' htmlFor='firstFlat'>total a pagar: </label>
+          <label className='mb-1' htmlFor='firstFlat'>Total a pagar: </label>
           <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
               text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='number'
@@ -163,14 +163,13 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
 
         <div className='flex flex-col my-3'>
           <label className='mb-1' htmlFor='firstFlat'>Personas en el piso 1: </label>
-          <input
-            className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
-            text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+          <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
+              text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='number'
             value={firstFloor}
             onChange={e => setHomeData({ ...homeData, firstFloor: Number(e.target.value).toString() })}
-            name='firstFlat'
-            id='firstFlat' />
+          />
+          <span className="text-xl text-emerald-700">{formatCash(parseInt(total))}</span>
         </div>
         <div className='flex flex-col my-3'>
           <label className='mb-1' htmlFor='firstFlat'>Personas en el piso 2: </label>
