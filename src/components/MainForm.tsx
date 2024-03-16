@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { HomeData, ServiceBill, PaymentPerFloor } from '../interfaces/AppInterfaces';
-import { formatDate } from "../helpers";
+import { formatCash, formatDate, formatShortDate } from "../helpers";
 interface Props {
   serviceBill: ServiceBill
   setServiceBill: React.Dispatch<React.SetStateAction<ServiceBill>>
@@ -70,12 +70,12 @@ const MainForm = ({
     setMessage(
       `Buenas tardes ${homeData.nameRecipient}, 
 este mensaje es para informarle que llegó el recibo de ${serviceBill.bill} 
-por valor de ${serviceBill.total} pesos. 
-Período facturado del 08 de febrero al 07 de marzo de 2024.
+por valor de ${formatCash(parseInt(total))} total pesos. 
+Período facturado del ${formatShortDate(serviceBill.billSince)} al ${formatShortDate(serviceBill.billTo)}.
 
-1º piso x ${homeData.firstFloor} personas = ${totalPerFloor.totalFirstFloor} pesos.
-2º piso x ${homeData.secondFloor} personas = ${totalPerFloor.totalSecondFloor} pesos.
-3º piso x ${homeData.thirdFloor} persona = ${totalPerFloor.totalThirdFloor} pesos.
+1º piso x ${homeData.firstFloor} personas = ${formatCash(totalPerFloor.totalFirstFloor)} pesos.
+2º piso x ${homeData.secondFloor} personas = ${formatCash(totalPerFloor.totalSecondFloor)} pesos.
+3º piso x ${homeData.thirdFloor} persona = ${formatCash(totalPerFloor.totalThirdFloor)} pesos.
 
 Fecha límite de pago es el ${formatDate(serviceBill.billDate)}.
 Favor cancelar mínimo 2 días antes para poder cancelar a tiempo.
@@ -155,8 +155,8 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             type='number'
             value={total}
             onChange={e => setServiceBill({ ...serviceBill, total: Number(e.target.value).toString() })}
-            name='total'
-            id='total' />
+          />
+          <span className="text-xl text-emerald-700">{formatCash(parseInt(total))}</span>
         </div>
         {
           errorBillDate && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
