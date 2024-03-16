@@ -164,7 +164,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
           <label className='mb-1' htmlFor='firstFlat'>Personas en el piso 1: </label>
           <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
               text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
-            type='tel'
+            type='text'
             value={firstFloor}
             onChange={e => setHomeData({ ...homeData, firstFloor: parseInt(Number(e.target.value).toString()) })}
             name='firstFlat'
