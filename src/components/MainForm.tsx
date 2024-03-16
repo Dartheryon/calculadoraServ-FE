@@ -62,7 +62,7 @@ const MainForm = ({
     }
     const roundedTotal: number = Math.ceil(parseInt(total) / 50) * 50
     const totalPeople: number = parseInt(firstFloor) + parseInt(secondFloor) + parseInt(thirdFloor);
-    const valuePerson: number = (isWaterBill) ? ((parseInt(total) - parseInt(local)) / totalPeople) : (roundedTotal / totalPeople);
+    const valuePerson: number = (isWaterBill) ? ((roundedTotal - parseInt(local)) / totalPeople) : (roundedTotal / totalPeople);
     const valueFirstfloor: number = valuePerson * parseInt(firstFloor);
     const valueSecondFloor: number = valuePerson * parseInt(secondFloor);
     const valueThirdFloor: number = valuePerson * parseInt(thirdFloor);
