@@ -164,9 +164,11 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
           <label className='mb-1' htmlFor='firstFlat'>Personas en el piso 1: </label>
           <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
               text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
-            type='number'
+            type='tel'
             value={firstFloor}
             onChange={e => setHomeData({ ...homeData, firstFloor: Number(e.target.value).toString() })}
+            name='firstFlat'
+            id='firstFlat'
           />
         </div>
         <div className='flex flex-col my-3'>
@@ -210,6 +212,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
                 onChange={e => setHomeData({ ...homeData, local: Number(e.target.value).toString() })}
                 name='local'
                 id='local' />
+              <span className="text-xl text-emerald-700">{formatCash(parseInt(local))}</span>
             </div>
           )
         }
