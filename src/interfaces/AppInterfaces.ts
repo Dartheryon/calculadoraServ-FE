@@ -1,5 +1,5 @@
 export interface HomeData {
-  firstFloor: string;
+  firstFloor: number;
   secondFloor: string;
   thirdFloor: string;
   local: string;

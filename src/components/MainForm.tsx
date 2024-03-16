@@ -60,9 +60,9 @@ const MainForm = ({
       setErrorBillDate(true)
       return
     }
-    const totalPeople: number = parseInt(firstFloor) + parseInt(secondFloor) + parseInt(thirdFloor);
+    const totalPeople: number = firstFloor + parseInt(secondFloor) + parseInt(thirdFloor);
     const valuePerson: number = (isWaterBill) ? ((parseInt(total) - parseInt(local)) / totalPeople) : (parseInt(total) / totalPeople);
-    const valueFirstfloor: number = valuePerson * parseInt(firstFloor);
+    const valueFirstfloor: number = valuePerson * firstFloor;
     const valueSecondFloor: number = valuePerson * parseInt(secondFloor);
     const valueThirdFloor: number = valuePerson * parseInt(thirdFloor);
     setMessage(
@@ -166,7 +166,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
               text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='tel'
             value={firstFloor}
-            onChange={e => setHomeData({ ...homeData, firstFloor: Number(e.target.value).toString() })}
+            onChange={e => setHomeData({ ...homeData, firstFloor: parseInt(Number(e.target.value).toString()) })}
             name='firstFlat'
             id='firstFlat'
           />
