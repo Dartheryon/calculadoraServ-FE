@@ -14,9 +14,9 @@ const SERVICE_BILL_INITIAL_STATE: ServiceBill = {
 }
 
 const HOME_DATA_INITIAL_STATE: HomeData = {
-  firstFloor: '2',
-  secondFloor: '3',
-  thirdFloor: '1',
+  firstFloor: '0',
+  secondFloor: '0',
+  thirdFloor: '0',
   local: '115000',
   isWaterBill: false,
   nameRecipient: 'Don Jorge'
