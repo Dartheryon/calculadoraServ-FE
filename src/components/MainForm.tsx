@@ -105,7 +105,6 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             <option value=''>-- Selecciona una opción --</option>
             <option value='acueducto'>Acueducto</option>
             <option value='Energia'>Energía</option>
-            <option value='internet'>Internet</option>
           </select>
         </div>
         {
@@ -169,10 +168,9 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             value={firstFloor}
             onChange={e => setHomeData({ ...homeData, firstFloor: Number(e.target.value).toString() })}
           />
-          <span className="text-xl text-emerald-700">{formatCash(parseInt(total))}</span>
         </div>
         <div className='flex flex-col my-3'>
-          <label className='mb-1' htmlFor='firstFlat'>Personas en el piso 2: </label>
+          <label className='mb-1' htmlFor='secondFlat'>Personas en el piso 2: </label>
           <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
           text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='number'
@@ -182,7 +180,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             id='secondFlat' />
         </div>
         <div className='flex flex-col my-3'>
-          <label className='mb-1' htmlFor='firstFlat'>Personas en el piso 3: </label>
+          <label className='mb-1' htmlFor='thirdFlat'>Personas en el piso 3: </label>
           <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
           text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='number'
@@ -192,7 +190,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             id='thirdFlat' />
         </div>
         <div className='flex flex-col my-3'>
-          <label className='mb-1' htmlFor='firstFlat'>Encargado del piso 2: </label>
+          <label className='mb-1' htmlFor='recipient'>Encargado del piso 2: </label>
           <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
           text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='text'
@@ -204,7 +202,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
         {
           isWaterBill && (
             <div className='flex flex-col my-3'>
-              <label className='mb-1' htmlFor='firstFlat'>Pago de agua del local: </label>
+              <label className='mb-1' htmlFor='local'>Pago de agua del local: </label>
               <input className="shadow appearance-none border-cyan-700 border rounded w-full py-2 px-3
               text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
                 type='number'
@@ -218,8 +216,6 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
         <div className='flex flex-col my-3'>
           <button className="bg-emerald-600 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded shadow-lg w-full" type="submit">Calcular</button>
         </div>
-
-
       </form>
     </>
   );
