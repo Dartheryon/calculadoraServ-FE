@@ -60,7 +60,10 @@ const MainForm = ({
       setErrorBillDate(true)
       return
     }
-    const roundedTotal: number = Math.ceil(parseInt(total) / 50) * 50
+    let roundedTotal: number = Math.ceil(parseInt(total) / 50) * 50
+    if (roundedTotal < parseInt(total)) {
+      roundedTotal += 50
+    }
     const totalPeople: number = parseInt(firstFloor) + parseInt(secondFloor) + parseInt(thirdFloor);
     const valuePerson: number = (isWaterBill) ? ((roundedTotal - parseInt(local)) / totalPeople) : (roundedTotal / totalPeople);
     const valueFirstfloor: number = valuePerson * parseInt(firstFloor);
@@ -70,7 +73,7 @@ const MainForm = ({
       (setMessage(
         `Buenas tardes ${nameRecipient}, 
 este mensaje es para informarle que llegó el recibo de ${bill} 
-por valor de ${formatCash(parseInt(total))} pesos. 
+por valor de ${formatCash(parseInt(total))} pesos. ${roundedTotal}
 Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo)}.
 
 1º piso x ${firstFloor} personas = ${formatCash(Math.round(valueFirstfloor / 50) * 50)} pesos.
@@ -85,7 +88,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
         setMessage(
           `Buenas tardes ${nameRecipient}, 
 este mensaje es para informarle que llegó el recibo de ${bill} 
-por valor de ${formatCash(parseInt(total))} pesos. 
+por valor de ${formatCash(parseInt(total))} pesos. ${roundedTotal}
 Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo)}.
 
 1º piso x ${firstFloor} personas = ${formatCash(Math.round(valueFirstfloor / 50) * 50)} pesos.
