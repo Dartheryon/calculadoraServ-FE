@@ -65,8 +65,9 @@ const MainForm = ({
     const valueFirstfloor: number = valuePerson * parseInt(firstFloor);
     const valueSecondFloor: number = valuePerson * parseInt(secondFloor);
     const valueThirdFloor: number = valuePerson * parseInt(thirdFloor);
-    setMessage(
-      `Buenas tardes ${nameRecipient}, 
+    (!isWaterBill) ?
+      (setMessage(
+        `Buenas tardes ${nameRecipient}, 
 este mensaje es para informarle que llegó el recibo de ${bill} 
 por valor de ${formatCash(parseInt(total))} pesos. 
 Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo)}.
@@ -78,7 +79,24 @@ Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo
 Fecha límite de pago es el ${formatDate(billDate)}.
 Favor cancelar mínimo 2 días antes para poder cancelar a tiempo.
 Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
-    );
+      ))
+      : (
+        setMessage(
+          `Buenas tardes ${nameRecipient}, 
+este mensaje es para informarle que llegó el recibo de ${bill} 
+por valor de ${formatCash(parseInt(total))} pesos. 
+Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo)}.
+
+1º piso x ${firstFloor} personas = ${formatCash(Math.round(valueFirstfloor / 50) * 50)} pesos.
+2º piso x ${secondFloor} personas = ${formatCash(Math.round(valueSecondFloor / 50) * 50)} pesos.
+3º piso x ${thirdFloor} persona = ${formatCash(Math.round(valueThirdFloor / 50) * 50)} pesos.
+Cobro corespondiente al local = ${formatCash(parseInt(local))} pesos.
+
+Fecha límite de pago es el ${formatDate(billDate)}.
+Favor cancelar mínimo 2 días antes para poder cancelar a tiempo.
+Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
+        )
+      )
     setIsMessageReady(true);
   };
 
