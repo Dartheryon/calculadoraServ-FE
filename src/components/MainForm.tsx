@@ -1,14 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import { HomeData, ServiceBill, PaymentPerFloor } from '../interfaces/AppInterfaces';
+import { HomeData, ServiceBill } from '../interfaces/AppInterfaces';
 import { formatCash, formatDate, formatShortDate } from "../helpers";
 interface Props {
   serviceBill: ServiceBill
   setServiceBill: React.Dispatch<React.SetStateAction<ServiceBill>>
   homeData: HomeData
   setHomeData: React.Dispatch<React.SetStateAction<HomeData>>
-  totalPerFloor: PaymentPerFloor
-  setTotalPerFloor: React.Dispatch<React.SetStateAction<PaymentPerFloor>>
   setIsMessageReady: React.Dispatch<React.SetStateAction<boolean>>
   setMessage: React.Dispatch<React.SetStateAction<string>>
 }
@@ -18,8 +16,6 @@ const MainForm = ({
   setServiceBill,
   homeData,
   setHomeData,
-  totalPerFloor,
-  setTotalPerFloor,
   setIsMessageReady,
   setMessage
 }: Props) => {
@@ -33,10 +29,17 @@ const MainForm = ({
   const { firstFloor, secondFloor, thirdFloor, local, isWaterBill, nameRecipient } = homeData
   const { bill, billDate, billSince, billTo, total } = serviceBill
 
+  useEffect(() => {
+    if (bill === 'acueducto') {
+      setHomeData({ ...homeData, isWaterBill: true })
+    }
+    else {
+      setHomeData({ ...homeData, isWaterBill: false })
+    }
+  }, [bill])
 
   const calculate = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(billDate)
     if (bill === '') {
       setErrorBill(true)
       return
@@ -62,36 +65,22 @@ const MainForm = ({
     const valueFirstfloor: number = valuePerson * parseInt(firstFloor);
     const valueSecondFloor: number = valuePerson * parseInt(secondFloor);
     const valueThirdFloor: number = valuePerson * parseInt(thirdFloor);
-    setTotalPerFloor({
-      totalFirstFloor: Math.round(valueFirstfloor / 50) * 50,
-      totalSecondFloor: Math.round(valueSecondFloor / 50) * 50,
-      totalThirdFloor: Math.round(valueThirdFloor / 50) * 50,
-    })
     setMessage(
-      `Buenas tardes ${homeData.nameRecipient}, 
-este mensaje es para informarle que llegó el recibo de ${serviceBill.bill} 
+      `Buenas tardes ${nameRecipient}, 
+este mensaje es para informarle que llegó el recibo de ${bill} 
 por valor de ${formatCash(parseInt(total))} total pesos. 
-Período facturado del ${formatShortDate(serviceBill.billSince)} al ${formatShortDate(serviceBill.billTo)}.
+Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo)}.
 
-1º piso x ${homeData.firstFloor} personas = ${formatCash(totalPerFloor.totalFirstFloor)} pesos.
-2º piso x ${homeData.secondFloor} personas = ${formatCash(totalPerFloor.totalSecondFloor)} pesos.
-3º piso x ${homeData.thirdFloor} persona = ${formatCash(totalPerFloor.totalThirdFloor)} pesos.
+1º piso x ${firstFloor} personas = ${formatCash(Math.round(valueFirstfloor / 50) * 50)} pesos.
+2º piso x ${secondFloor} personas = ${formatCash(Math.round(valueSecondFloor / 50) * 50)} pesos.
+3º piso x ${thirdFloor} persona = ${formatCash(Math.round(valueThirdFloor / 50) * 50)} pesos.
 
-Fecha límite de pago es el ${formatDate(serviceBill.billDate)}.
+Fecha límite de pago es el ${formatDate(billDate)}.
 Favor cancelar mínimo 2 días antes para poder cancelar a tiempo.
 Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
     );
     setIsMessageReady(true);
   };
-
-  useEffect(() => {
-    if (bill === 'acueducto') {
-      setHomeData({ ...homeData, isWaterBill: true })
-    }
-    else {
-      setHomeData({ ...homeData, isWaterBill: false })
-    }
-  }, [bill])
 
   return (
     <>

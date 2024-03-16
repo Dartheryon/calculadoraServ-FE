@@ -1,13 +1,11 @@
 import MainForm from './MainForm'
-import { HomeData, ServiceBill, PaymentPerFloor } from '../interfaces/AppInterfaces'
+import { HomeData, ServiceBill } from '../interfaces/AppInterfaces'
 
 interface Props {
   serviceBill: ServiceBill
   setServiceBill: React.Dispatch<React.SetStateAction<ServiceBill>>
   homeData: HomeData,
   setHomeData: React.Dispatch<React.SetStateAction<HomeData>>
-  totalPerFloor: PaymentPerFloor
-  setTotalPerFloor: React.Dispatch<React.SetStateAction<PaymentPerFloor>>
   setIsMessageReady: React.Dispatch<React.SetStateAction<boolean>>
   setMessage: React.Dispatch<React.SetStateAction<string>>
 }
@@ -17,8 +15,6 @@ const DataForm = ({
   setServiceBill,
   homeData,
   setHomeData,
-  totalPerFloor,
-  setTotalPerFloor,
   setIsMessageReady,
   setMessage
 }: Props) => {
@@ -31,8 +27,6 @@ const DataForm = ({
         setServiceBill={setServiceBill}
         homeData={homeData}
         setHomeData={setHomeData}
-        totalPerFloor={totalPerFloor}
-        setTotalPerFloor={setTotalPerFloor}
         setIsMessageReady={setIsMessageReady}
         setMessage={setMessage}
       />

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { HomeData, ServiceBill, PaymentPerFloor } from './interfaces/AppInterfaces'
+import { HomeData, ServiceBill } from './interfaces/AppInterfaces'
 import DataForm from './components/DataForm';
 import Header from './components/Header';
 import DataPresentation from './components/DataPresentation';
@@ -21,15 +21,9 @@ const HOME_DATA_INITIAL_STATE: HomeData = {
   isWaterBill: false,
   nameRecipient: 'Don Jorge'
 }
-const TOTAL_PER_FLOOR_INITIAL_STATE: PaymentPerFloor = {
-  totalFirstFloor: 0,
-  totalSecondFloor: 0,
-  totalThirdFloor: 0
-}
 function App() {
   const [serviceBill, setServiceBill] = useState<ServiceBill>(SERVICE_BILL_INITIAL_STATE)
   const [homeData, setHomeData] = useState<HomeData>(HOME_DATA_INITIAL_STATE)
-  const [totalPerFloor, setTotalPerFloor] = useState<PaymentPerFloor>(TOTAL_PER_FLOOR_INITIAL_STATE)
   const [message, setMessage] = useState<string>('')
   const [isMessageReady, setIsMessageReady] = useState<boolean>(false)
 
@@ -44,8 +38,6 @@ function App() {
           setServiceBill={setServiceBill}
           homeData={homeData}
           setHomeData={setHomeData}
-          totalPerFloor={totalPerFloor}
-          setTotalPerFloor={setTotalPerFloor}
           setIsMessageReady={setIsMessageReady}
           setMessage={setMessage}
         />

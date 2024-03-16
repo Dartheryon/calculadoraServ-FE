@@ -8,6 +8,7 @@ const DataPresentation = ({
   isMessageReady,
   message
 }: Props) => {
+
   return isMessageReady && (
     <div className='flex flex-col'>
       <h2 className='text-center text-xl mx-5 my-3 text-black'>Toca el siguiente texto para copiarlo y poder enviarlo a los destinatarios</h2>

@@ -14,9 +14,3 @@ export interface ServiceBill {
   billDate: Date | string;
   total: string;
 }
-
-export interface PaymentPerFloor {
-  totalFirstFloor: number;
-  totalSecondFloor: number;
-  totalThirdFloor: number;
-}
