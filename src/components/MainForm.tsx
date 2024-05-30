@@ -73,7 +73,7 @@ const MainForm = ({
       (setMessage(
         `Buenas tardes ${nameRecipient}, 
 este mensaje es para informarle que llegó el recibo de ${bill} 
-por valor de ${formatCash(parseInt(total))} pesos. ${roundedTotal}
+por valor de ${formatCash(parseInt(total))} pesos.
 Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo)}.
 
 1º piso x ${firstFloor} personas = ${formatCash(Math.round(valueFirstfloor / 50) * 50)} pesos.
