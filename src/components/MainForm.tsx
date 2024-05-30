@@ -21,7 +21,7 @@ const MainForm = ({
 }: Props) => {
 
   const [errorBill, setErrorBill] = useState<boolean>(false)
-  const [errorAmmountBill, setErrorAmmountBill] = useState<boolean>(false)
+  const [errorAmountBill, setErrorAmountBill] = useState<boolean>(false)
   const [errorBillDate, setErrorBillDate] = useState<boolean>(false)
   const [errorBillSince, setErrorBillSince] = useState<boolean>(false)
   const [errorBillTo, setErrorBillTo] = useState<boolean>(false)
@@ -53,7 +53,7 @@ const MainForm = ({
       return
     }
     if (total === '0') {
-      setErrorAmmountBill(true)
+      setErrorAmountBill(true)
       return
     }
     if (billDate === '') {
@@ -156,7 +156,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             id='BillTo' />
         </div>
         {
-          errorAmmountBill && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor digita el valor de la factura</p>
+          errorAmountBill && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor digita el valor de la factura</p>
         }
         <div className='flex flex-col my-3'>
           <label className='mb-1' htmlFor='firstFlat'>Total a pagar: </label>
@@ -188,7 +188,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
               text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
             type='text'
             value={firstFloor}
-            onChange={e => setHomeData({ ...homeData, secondFloor: Number(e.target.value).toString() })}
+            onChange={e => setHomeData({ ...homeData, firstFloor: Number(e.target.value).toString() })}
             name='firstFlat'
             id='firstFlat'
           />
