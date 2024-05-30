@@ -166,7 +166,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
             value={total}
             onChange={e => setServiceBill({ ...serviceBill, total: Number(e.target.value).toString() })}
           />
-          <span className="text-xl text-emerald-700">{formatCash(parseInt(total))}</span>
+          <span className="text-2xl font-bold text-red-800">{formatCash(parseInt(total))}</span>
         </div>
         {
           errorBillDate && <p className='text-center font-bold text-white py-5 bg-red-700'>Por favor elige una fecha</p>
@@ -234,7 +234,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
                 onChange={e => setHomeData({ ...homeData, local: Number(e.target.value).toString() })}
                 name='local'
                 id='local' />
-              <span className="text-xl text-emerald-700">{formatCash(parseInt(local))}</span>
+              <span className="text-2xl font-bold text-red-800">{formatCash(parseInt(local))}</span>
             </div>
           )
         }
