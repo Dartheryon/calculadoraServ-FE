@@ -8,6 +8,7 @@ const SerialCodes = () => {
   const codeGasP1 = '60858272'
   const codeGasP2 = '60858333'
   const codeGasP3 = '60858390'
+  
   return (
     <div className='flex flex-col'>
       <h1>Códigos de pago</h1>
