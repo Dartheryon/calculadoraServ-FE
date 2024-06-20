@@ -126,7 +126,7 @@ Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
           >
             <option value=''>-- Selecciona una opción --</option>
             <option value='acueducto'>Acueducto</option>
-            <option value='Energia'>Energía</option>
+            <option value='energía'>Energía</option>
           </select>
         </div>
         {
