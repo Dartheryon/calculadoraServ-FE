@@ -15,7 +15,7 @@ const SERVICE_BILL_INITIAL_STATE: ServiceBill = {
 
 const HOME_DATA_INITIAL_STATE: HomeData = {
   firstFloor: '2',
-  secondFloor: '4',
+  secondFloor: '6',
   thirdFloor: '1',
   local: '115000',
   isWaterBill: false,
