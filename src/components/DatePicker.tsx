@@ -162,7 +162,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
           <select
             value={viewYear}
             onChange={e => setViewYear(Number(e.target.value))}
-            className="w-[72px] text-sm border border-emerald-200 rounded-xl px-2 py-1.5 text-emerald-800 bg-white/70 focus:outline-none focus:border-emerald-400 cursor-pointer font-medium"
+            className="w-[72px] text-xs border border-emerald-200 rounded-xl px-2 py-1.5 text-emerald-800 bg-white/70 focus:outline-none focus:border-emerald-400 cursor-pointer font-medium"
           >
             {years.map(y => <option key={y} value={y}>{y}</option>)}
           </select>
