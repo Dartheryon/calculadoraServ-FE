@@ -29,8 +29,8 @@ const CodesDrawer = ({ isOpen, onClose }: Props) => {
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-emerald-100">
               <div>
-                <h2 className="font-bold text-base text-slate-900">Códigos de pago</h2>
-                <p className="text-xs text-slate-400 mt-0.5">Tocá el código para copiarlo</p>
+                <h2 className="font-bold text-xl text-slate-900">Códigos de pago</h2>
+                <p className="text-base text-slate-400 mt-0.5">Tocá el código para copiarlo</p>
               </div>
               <button
                 onClick={onClose}

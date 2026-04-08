@@ -23,7 +23,7 @@ const StepIndicator = ({ currentStep, totalSteps }: Props) => {
           <li key={index} className="flex items-center" aria-label={label}>
             <span
               className={clsx(
-                'w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2',
+                'w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold border-2',
                 {
                   'bg-emerald-600 border-emerald-600 text-white': isCompleted,
                   'bg-white border-emerald-500 text-emerald-700 ring-2 ring-emerald-100': isActive,

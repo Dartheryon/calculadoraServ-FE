@@ -135,7 +135,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
             </svg>
           </button>
 
-          <span className="font-bold text-sm text-emerald-900 tracking-tight">
+          <span className="font-bold text-lg text-emerald-900 tracking-tight">
             {MONTHS[viewMonth]} {viewYear}
           </span>
 
@@ -155,14 +155,14 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
           <select
             value={viewMonth}
             onChange={e => setViewMonth(Number(e.target.value))}
-            className="flex-1 text-xs border border-emerald-200 rounded-xl px-2.5 py-1.5 text-emerald-800 bg-white/70 focus:outline-none focus:border-emerald-400 cursor-pointer font-medium"
+            className="flex-1 text-base border border-emerald-200 rounded-xl px-2.5 py-1.5 text-emerald-800 bg-white/70 focus:outline-none focus:border-emerald-400 cursor-pointer font-medium"
           >
             {MONTHS.map((m, i) => <option key={i} value={i}>{m}</option>)}
           </select>
           <select
             value={viewYear}
             onChange={e => setViewYear(Number(e.target.value))}
-            className="w-[72px] text-xs border border-emerald-200 rounded-xl px-2 py-1.5 text-emerald-800 bg-white/70 focus:outline-none focus:border-emerald-400 cursor-pointer font-medium"
+            className="w-[72px] text-base border border-emerald-200 rounded-xl px-2 py-1.5 text-emerald-800 bg-white/70 focus:outline-none focus:border-emerald-400 cursor-pointer font-medium"
           >
             {years.map(y => <option key={y} value={y}>{y}</option>)}
           </select>
@@ -171,7 +171,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
         {/* Day headers */}
         <div className="grid grid-cols-7 mb-1">
           {DAY_HEADERS.map(h => (
-            <div key={h} className="text-center text-xs font-bold text-emerald-500 py-1">
+            <div key={h} className="text-center text-base font-bold text-emerald-500 py-1">
               {h}
             </div>
           ))}
@@ -188,7 +188,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
                 type="button"
                 onClick={() => handleDayClick(cell.date)}
                 className={`
-                  h-8 w-8 mx-auto text-xs rounded-full flex items-center justify-center transition-colors font-medium
+                  h-8 w-8 mx-auto text-base rounded-full flex items-center justify-center transition-colors font-medium
                   ${isSelected
                     ? 'bg-emerald-600 text-white font-bold shadow-sm'
                     : isCurrent
@@ -204,7 +204,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
         </div>
 
         {/* Close hint */}
-        <p className="text-center text-[10px] text-emerald-400 mt-3">
+        <p className="text-center text-base text-emerald-400 mt-3">
           Presioná Esc o tocá afuera para cerrar
         </p>
       </div>
@@ -245,7 +245,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
           <line x1="8" x2="8" y1="2" y2="6" />
           <line x1="3" x2="21" y1="10" y2="10" />
         </svg>
-        <span className={`text-sm ${selected ? 'text-slate-800 font-medium' : 'text-slate-400'}`}>
+        <span className={`text-lg ${selected ? 'text-slate-800 font-medium' : 'text-slate-600'}`}>
           {selected ? formatText(selected) : 'Seleccioná una fecha'}
         </span>
       </button>

@@ -9,11 +9,11 @@ interface Props {
 const Step1Service = ({ serviceBill, setServiceBill, errors }: Props) => {
   return (
     <div>
-      <h3 className="text-lg font-bold text-center text-slate-800 mb-5 tracking-tight">
+      <h3 className="text-2xl font-bold text-center text-slate-800 mb-5 tracking-tight">
         Seleccioná el servicio público
       </h3>
       {errors.map((error, i) => (
-        <p key={i} className="text-red-500 text-xs font-medium mb-2 px-1">
+        <p key={i} className="text-red-500 text-base font-medium mb-2 px-1">
           {error}
         </p>
       ))}

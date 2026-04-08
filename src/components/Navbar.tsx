@@ -6,7 +6,7 @@ const Navbar = ({ onCodesOpen }: Props) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-xl border-b border-emerald-100/80 shadow-sm">
       <div className="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
-        <span className="font-black text-xl tracking-tight text-slate-900">
+        <span className="font-black text-3xl tracking-tight text-slate-900">
           Calculadora{' '}
           <span className="text-emerald-600">Suba</span>
         </span>
@@ -14,7 +14,7 @@ const Navbar = ({ onCodesOpen }: Props) => {
         {/* Desktop link */}
         <button
           onClick={onCodesOpen}
-          className="hidden md:flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-emerald-600 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-emerald-50"
+          className="hidden md:flex items-center gap-2 text-lg font-semibold text-slate-500 hover:text-emerald-600 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-emerald-50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <rect width="20" height="14" x="2" y="5" rx="2" />

@@ -62,9 +62,9 @@ const Step4Result = ({ message, onReset }: Props) => {
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="text-lg font-bold text-slate-800 tracking-tight">Resultado</h3>
+        <h3 className="text-2xl font-bold text-slate-800 tracking-tight">Resultado</h3>
       </div>
-      <p className="text-xs text-slate-400 text-center mb-4">Tocá el texto para copiarlo</p>
+      <p className="text-base text-slate-400 text-center mb-4">Tocá el texto para copiarlo</p>
 
       <motion.div
         onClick={handleCopy}
@@ -77,7 +77,7 @@ const Step4Result = ({ message, onReset }: Props) => {
           }
         `}
       >
-        <pre className="whitespace-pre-wrap text-sm text-slate-700 font-sans leading-relaxed break-words">
+        <pre className="whitespace-pre-wrap text-lg text-slate-700 font-sans leading-relaxed break-words">
           {message}
         </pre>
       </motion.div>
@@ -86,7 +86,7 @@ const Step4Result = ({ message, onReset }: Props) => {
         <button
           type="button"
           onClick={onReset}
-          className="flex-1 border border-emerald-200 hover:bg-emerald-50 text-emerald-700 font-semibold py-2.5 px-4 rounded-xl transition-colors text-sm"
+          className="flex-1 border border-emerald-200 hover:bg-emerald-50 text-emerald-700 font-semibold py-2.5 px-4 rounded-xl transition-colors text-lg"
         >
           Calcular de nuevo
         </button>
@@ -94,7 +94,7 @@ const Step4Result = ({ message, onReset }: Props) => {
           type="button"
           onClick={handleCopy}
           className={`
-            flex-1 font-semibold py-2.5 px-4 rounded-xl transition-all text-sm flex items-center justify-center gap-2
+            flex-1 font-semibold py-2.5 px-4 rounded-xl transition-all text-lg flex items-center justify-center gap-2
             ${copied
               ? 'bg-emerald-100 text-emerald-700'
               : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm'
