@@ -53,7 +53,9 @@ Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo
 
 Fecha límite de pago es el ${formatDate(billDate)}.
 Favor cancelar mínimo 2 días antes para poder pagar a tiempo.
-Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`
+Por favor confirmar el recibo de este mensaje.
+Gracias.
+Tenga un buen día.`
     : `Buenas tardes ${nameRecipient},
 este mensaje es para informarle que llegó el recibo de ${bill}
 por valor de ${formatCash(parseInt(total))} pesos.
@@ -66,7 +68,9 @@ Cobro corespondiente al local = ${formatCash(parseInt(local))} pesos.
 
 Fecha límite de pago es el ${formatDate(billDate)}.
 Favor cancelar mínimo 2 días antes para poder pagar a tiempo.
-Por favor confirmar el recibo de este mensaje. Gracias. Tenga un buen día.`;
+Por favor confirmar el recibo de este mensaje.
+Gracias.
+Tenga un buen día.`;
 
   return { success: true, message };
 }
