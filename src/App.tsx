@@ -16,9 +16,9 @@ const SERVICE_BILL_INITIAL_STATE: ServiceBill = {
 
 const HOME_DATA_INITIAL_STATE: HomeData = {
   firstFloor: '2',
-  secondFloor: '6',
+  secondFloor: '2',
   thirdFloor: '1',
-  local: '115000',
+  local: '130000',
   nameRecipient: 'Don Jorge'
 }
 
