@@ -16,7 +16,7 @@ const ResultCard = ({ message }: Props) => {
     >
       <div className="px-5 py-4 border-b border-emerald-100">
         <h3 className="font-semibold text-lg text-slate-700">Resultado del cálculo</h3>
-        <p className="text-base text-slate-400 mt-0.5">Tocá el texto para copiarlo</p>
+        <p className="text-base text-slate-400 mt-0.5">Toca el texto para copiarlo</p>
       </div>
       <CopyToClipboard text={message}>
         <div

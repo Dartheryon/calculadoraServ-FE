@@ -205,7 +205,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
 
         {/* Close hint */}
         <p className="text-center text-base text-emerald-400 mt-3">
-          Presioná Esc o tocá afuera para cerrar
+          Presiona Esc o tocá afuera para cerrar
         </p>
       </div>
     </div>,
@@ -246,7 +246,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
           <line x1="3" x2="21" y1="10" y2="10" />
         </svg>
         <span className={`text-lg ${selected ? 'text-slate-800 font-medium' : 'text-slate-600'}`}>
-          {selected ? formatText(selected) : 'Seleccioná una fecha'}
+          {selected ? formatText(selected) : 'Selecciona una fecha'}
         </span>
       </button>
 
