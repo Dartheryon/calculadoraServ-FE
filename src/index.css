@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .label-premium {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-widest text-emerald-700/80;
+  }
+
+  .input-premium {
+    @apply w-full bg-white/80 border border-emerald-100 rounded-xl px-4 py-3
+      text-slate-700 text-sm font-medium
+      placeholder:text-slate-300
+      focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100
+      transition-all duration-200;
+  }
+
+  .select-premium {
+    @apply w-full bg-white/80 border border-emerald-100 rounded-xl px-4 py-3
+      text-slate-700 text-sm font-medium appearance-none
+      focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100
+      transition-all duration-200 cursor-pointer;
+  }
+
+  .card-glass {
+    @apply bg-white/65 backdrop-blur-xl border border-white/80 shadow-xl rounded-3xl;
+  }
+}

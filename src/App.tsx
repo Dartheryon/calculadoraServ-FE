@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 
-import { HomeData, ServiceBill } from './interfaces/AppInterfaces'
-import DataForm from './components/DataForm';
-import Header from './components/Header';
-import DataPresentation from './components/DataPresentation';
+import { HomeData, ServiceBill } from './interfaces/AppInterfaces';
+import WizardForm from './components/wizard/WizardForm';
+import Navbar from './components/Navbar';
+import CodesDrawer from './components/CodesDrawer';
 
 const SERVICE_BILL_INITIAL_STATE: ServiceBill = {
   bill: '',
@@ -15,37 +16,36 @@ const SERVICE_BILL_INITIAL_STATE: ServiceBill = {
 
 const HOME_DATA_INITIAL_STATE: HomeData = {
   firstFloor: '2',
-  secondFloor: '6',
+  secondFloor: '2',
   thirdFloor: '1',
-  local: '115000',
-  isWaterBill: false,
+  local: '130000',
   nameRecipient: 'Don Jorge'
 }
+
 function App() {
   const [serviceBill, setServiceBill] = useState<ServiceBill>(SERVICE_BILL_INITIAL_STATE)
   const [homeData, setHomeData] = useState<HomeData>(HOME_DATA_INITIAL_STATE)
-  const [message, setMessage] = useState<string>('')
-  const [isMessageReady, setIsMessageReady] = useState<boolean>(false)
-
-
+  const [codesOpen, setCodesOpen] = useState(false)
 
   return (
-    <div className="container mt-20 mx-auto">
-      <Header />
-      <div className='md:flex mt-10'>
-        <DataForm
+    <div className="min-h-screen relative overflow-x-hidden bg-gradient-to-br from-emerald-50 via-white to-emerald-100/50">
+      <div className="pointer-events-none absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-emerald-200/40 blur-3xl" />
+      <div className="pointer-events-none absolute top-1/2 -right-48 w-[400px] h-[400px] rounded-full bg-emerald-300/25 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 left-1/3 w-[350px] h-[350px] rounded-full bg-emerald-100/50 blur-3xl" />
+
+      <Toaster position="bottom-center" />
+      <Navbar onCodesOpen={() => setCodesOpen(true)} />
+
+      <main className="max-w-xl mx-auto px-4 pt-24 pb-16">
+        <WizardForm
           serviceBill={serviceBill}
           setServiceBill={setServiceBill}
           homeData={homeData}
           setHomeData={setHomeData}
-          setIsMessageReady={setIsMessageReady}
-          setMessage={setMessage}
         />
-        <DataPresentation
-          isMessageReady={isMessageReady}
-          message={message}
-        />
-      </div>
+      </main>
+
+      <CodesDrawer isOpen={codesOpen} onClose={() => setCodesOpen(false)} />
     </div>
   )
 }

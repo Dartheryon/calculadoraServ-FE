@@ -3,8 +3,13 @@ export interface HomeData {
   secondFloor: string;
   thirdFloor: string;
   local: string;
-  isWaterBill: boolean;
   nameRecipient: string;
+}
+
+export interface CalculationResult {
+  message: string;
+  success: boolean;
+  error?: string;
 }
 
 export interface ServiceBill {

@@ -9,19 +9,21 @@ interface Props {
 const Copy = ({ code, title }: Props) => {
   return (
     <>
-      <h2 className='text-center text-xl mx-5 my-3 text-black'>{title}</h2>
-      <div
-        className=" bg-white shadow-md px-5 pt-6 pb-8 rounded-2xl my-3 mx-5"
-      >
-        <CopyToClipboard text={code}>
-          <span onClick={() => toast.success('Texto Copiado al portapapeles')} className='font-sans'>
-            <p className='text-center text-2xl text-blue-800 font-black'>
-              {code}
-            </p>
-          </span>
-        </CopyToClipboard>
-      </div>
+      <h2 className="text-xs font-semibold uppercase tracking-widest text-emerald-600/70 mt-4 mb-1.5">
+        {title}
+      </h2>
+      <CopyToClipboard text={code}>
+        <div
+          onClick={() => toast.success('Código copiado')}
+          className="bg-white/70 border border-emerald-100 px-4 py-3.5 rounded-xl cursor-pointer hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-200 active:scale-[0.98]"
+        >
+          <p className="text-center text-lg text-emerald-700 font-black tracking-widest">
+            {code}
+          </p>
+        </div>
+      </CopyToClipboard>
     </>
   )
 }
+
 export default Copy
