@@ -76,7 +76,7 @@ const WizardForm = ({ serviceBill, setServiceBill, homeData, setHomeData }: Prop
   const isLastFormStep = currentStep === FORM_STEPS - 1;
 
   return (
-    <div className="card-glass px-6 pt-6 pb-8 w-full">
+    <div className="card-glass px-6 pt-6 pb-6 w-full">
       {!isResultStep && (
         <StepIndicator currentStep={currentStep} totalSteps={FORM_STEPS} />
       )}
@@ -109,7 +109,7 @@ const WizardForm = ({ serviceBill, setServiceBill, homeData, setHomeData }: Prop
       </div>
 
       {!isResultStep && (
-        <div className="flex justify-between gap-4 mt-6">
+        <div className="flex justify-between gap-4 mt-4">
           {currentStep > 0 ? (
             <button
               type="button"

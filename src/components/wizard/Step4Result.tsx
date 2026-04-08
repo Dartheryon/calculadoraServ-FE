@@ -82,7 +82,7 @@ const Step4Result = ({ message, onReset }: Props) => {
         </pre>
       </motion.div>
 
-      <div className="flex gap-3 mt-5">
+      <div className="flex gap-3 mt-4">
         <button
           type="button"
           onClick={onReset}

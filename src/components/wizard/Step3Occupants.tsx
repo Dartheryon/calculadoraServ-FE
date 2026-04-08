@@ -14,7 +14,7 @@ const Step3Occupants = ({ serviceBill, homeData, setHomeData, errors }: Props) =
 
   return (
     <div>
-      <h3 className="text-2xl font-bold text-center text-slate-800 mb-5 tracking-tight">
+      <h3 className="text-2xl font-bold text-center text-slate-800 mb-3 tracking-tight">
         Ocupantes por piso
       </h3>
       {errors.map((error, i) => (
@@ -23,7 +23,7 @@ const Step3Occupants = ({ serviceBill, homeData, setHomeData, errors }: Props) =
         </p>
       ))}
 
-      <div className="flex flex-col my-3">
+      <div className="flex flex-col my-2">
         <label className="label-premium" htmlFor="firstFloor">
           Personas en el piso 1
         </label>
@@ -39,7 +39,7 @@ const Step3Occupants = ({ serviceBill, homeData, setHomeData, errors }: Props) =
         />
       </div>
 
-      <div className="flex flex-col my-3">
+      <div className="flex flex-col my-2">
         <label className="label-premium" htmlFor="secondFloor">
           Personas en el piso 2
         </label>
@@ -55,7 +55,7 @@ const Step3Occupants = ({ serviceBill, homeData, setHomeData, errors }: Props) =
         />
       </div>
 
-      <div className="flex flex-col my-3">
+      <div className="flex flex-col my-2">
         <label className="label-premium" htmlFor="thirdFloor">
           Personas en el piso 3
         </label>
@@ -71,7 +71,7 @@ const Step3Occupants = ({ serviceBill, homeData, setHomeData, errors }: Props) =
         />
       </div>
 
-      <div className="flex flex-col my-3">
+      <div className="flex flex-col my-2">
         <label className="label-premium" htmlFor="nameRecipient">
           Encargado del piso 2
         </label>
@@ -86,7 +86,7 @@ const Step3Occupants = ({ serviceBill, homeData, setHomeData, errors }: Props) =
       </div>
 
       {isWaterBill && (
-        <div className="flex flex-col my-3">
+        <div className="flex flex-col my-2">
           <label className="label-premium" htmlFor="local">
             Pago de agua del local
           </label>

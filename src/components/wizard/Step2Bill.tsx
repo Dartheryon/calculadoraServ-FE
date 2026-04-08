@@ -13,7 +13,7 @@ const Step2Bill = ({ serviceBill, setServiceBill, errors }: Props) => {
 
   return (
     <div>
-      <h3 className="text-2xl font-bold text-center text-slate-800 mb-5 tracking-tight">
+      <h3 className="text-2xl font-bold text-center text-slate-800 mb-3 tracking-tight">
         Datos de la factura
       </h3>
       {errors.map((error, i) => (
@@ -36,7 +36,7 @@ const Step2Bill = ({ serviceBill, setServiceBill, errors }: Props) => {
         onChange={(date) => setServiceBill({ ...serviceBill, billTo: date })}
       />
 
-      <div className="flex flex-col my-3">
+      <div className="flex flex-col my-2">
         <label className="label-premium" htmlFor="total">
           Total a pagar
         </label>

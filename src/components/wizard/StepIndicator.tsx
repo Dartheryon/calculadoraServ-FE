@@ -7,7 +7,7 @@ interface Props {
 
 const StepIndicator = ({ currentStep, totalSteps }: Props) => {
   return (
-    <ol className="flex items-center justify-center mb-6 gap-2">
+    <ol className="flex items-center justify-center mb-4 gap-2">
       {Array.from({ length: totalSteps }, (_, index) => {
         const isCompleted = index < currentStep;
         const isActive = index === currentStep;

@@ -213,7 +213,7 @@ const DatePicker = ({ id, label, value, onChange }: Props) => {
   ) : null
 
   return (
-    <div className="flex flex-col my-3">
+    <div className="flex flex-col my-2">
       <label htmlFor={id} className="label-premium">
         {label}
       </label>

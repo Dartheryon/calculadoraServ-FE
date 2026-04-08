@@ -9,7 +9,7 @@ interface Props {
 const Step1Service = ({ serviceBill, setServiceBill, errors }: Props) => {
   return (
     <div>
-      <h3 className="text-2xl font-bold text-center text-slate-800 mb-5 tracking-tight">
+      <h3 className="text-2xl font-bold text-center text-slate-800 mb-3 tracking-tight">
         Seleccioná el servicio público
       </h3>
       {errors.map((error, i) => (
@@ -17,7 +17,7 @@ const Step1Service = ({ serviceBill, setServiceBill, errors }: Props) => {
           {error}
         </p>
       ))}
-      <div className="flex flex-col my-3">
+      <div className="flex flex-col my-2">
         <label className="label-premium" htmlFor="bill">
           Servicio público
         </label>
