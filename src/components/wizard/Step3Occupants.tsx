@@ -73,7 +73,7 @@ const Step3Occupants = ({ serviceBill, homeData, setHomeData, errors }: Props) =
 
       <div className="flex flex-col my-2">
         <label className="label-premium" htmlFor="nameRecipient">
-          Encargado del piso 2
+          Encargado del piso 1
         </label>
         <input
           className="input-premium"

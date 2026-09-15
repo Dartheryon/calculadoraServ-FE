@@ -64,7 +64,7 @@ Período facturado del ${formatShortDate(billSince)} al ${formatShortDate(billTo
 1º piso x ${firstFloor} personas = ${formatCash(Math.round(valueFirstfloor / 50) * 50)} pesos.
 2º piso x ${secondFloor} personas = ${formatCash(Math.round(valueSecondFloor / 50) * 50)} pesos.
 3º piso x ${thirdFloor} persona = ${formatCash(Math.round(valueThirdFloor / 50) * 50)} pesos.
-Cobro corespondiente al local = ${formatCash(parseInt(local))} pesos.
+Cobro correspondiente al local = ${formatCash(parseInt(local))} pesos.
 
 Fecha límite de pago es el ${formatDate(billDate)}.
 Favor cancelar mínimo 2 días antes para poder pagar a tiempo.
